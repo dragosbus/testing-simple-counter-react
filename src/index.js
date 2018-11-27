@@ -1,14 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import {Counter} from './components/Counter';
 
 import "./styles.css";
 
-function App() {
-  return (
-    <div className="App">
-      
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    counter: 0
+  }
+
+  render() {
+    return(
+      <div className="app">
+        <Counter {...this.state}/>
+      </div>
+    );
+  }
 }
 
 const rootElement = document.getElementById("root");
