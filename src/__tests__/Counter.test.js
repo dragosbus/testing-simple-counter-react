@@ -8,10 +8,20 @@ Enzyme.configure({ adapter: new Adapter() });
 const props ={counter:0};
 
 describe('<Counter/>', () => {
-  const wrapper = shallow(<Counter {...props}/>);
+  let wrapper;
   
   it('should have the initial counter 0', () => {
+    wrapper = shallow(<Counter {...props} />)
     expect(wrapper.find('p').text()).toEqual('0');
-    expect(wrapper.props().children).toEqual(0);
+  });
+
+  it('should increment the count on increment button', () => {
+    wrapper = shallow(<Counter {...props} />);
+    beforeEach(() => {
+      wrapper.find('button').at(0).simulate('click');
+    });
+    it('the counter should be 1', () => {
+      expect(wrapper.find('p').text()).toEqual('1');
+    });
   });
 });
