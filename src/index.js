@@ -9,8 +9,10 @@ class App extends React.Component {
     counter: 0
   }
 
-  increment = () => this.setState({counter: this.state.counter + 1});
-  decrement = () => this.setState({counter: this.state.counter - 1});
+  doIncrementer = amount => this.setState({counter: this.state.counter + amount});
+
+  increment = () => this.doIncrementer(1);
+  decrement = () => this.doIncrementer(-1);
 
   render() {
     return(
