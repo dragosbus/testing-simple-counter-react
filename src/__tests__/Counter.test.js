@@ -8,6 +8,7 @@ Enzyme.configure({ adapter: new Adapter() });
 const props ={counter:0};
 
 describe('<Counter/>', () => {
+
   let wrapper;
   
   it('should have the initial counter 0', () => {

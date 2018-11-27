@@ -1,26 +1,22 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import {Counter} from './components/Counter';
+import {CounterList} from './components/CounterList';
 
 import "./styles.css";
 
 class App extends React.Component {
   state = {
-    counter: 0
+    counters: 1
   }
 
-  doIncrementer = amount => this.setState({counter: this.state.counter + amount});
-
-  increment = () => this.doIncrementer(1);
-  decrement = () => this.doIncrementer(-1);
+  addCounter = () => this.setState({counters: this.state.counters + 1});
 
   render() {
     return(
       <div className="app">
-        <Counter 
+        <button onClick={this.addCounter}>Add Counter</button>
+        <CounterList
           {...this.state}
-          increment={this.increment}
-          decrement={this.decrement}
         />
       </div>
     );
